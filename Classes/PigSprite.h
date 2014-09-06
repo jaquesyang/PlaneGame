@@ -21,6 +21,10 @@ public:
     virtual bool init();
     CREATE_FUNC(PigSprite);
     Sprite* getSprite();
+    
+    void f_createAnimate(int count, int fps);
+    void f_followPlane(float dt);
+    
 private:
     void initData();
     Sprite* mSprite;

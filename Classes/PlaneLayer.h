@@ -12,7 +12,11 @@
 
 #include "cocos2d.h"
 
+#include "PigSprite.h"
+
 USING_NS_CC;
+
+#define PLANE_TAG 1
 
 class PlaneLayer: public cocos2d::Layer {
 public:
@@ -20,10 +24,19 @@ public:
     ~PlaneLayer();
     static cocos2d::Scene* createScene();
     virtual bool init();
-    CREATE_FUNC(PlaneLayer);
+    //CREATE_FUNC(PlaneLayer);
 
+    static PlaneLayer* getInstance();
+    
+    bool onTouchBegan(Touch* touch, Event* pEvent);
+    void onTouchMoved(Touch *touch, Event* pEvent);
+    
+    
 private:
     void initData();
+    
+    PigSprite* mPig;
+    //static PlaneLayer* sharedPlane;
     
 };
 

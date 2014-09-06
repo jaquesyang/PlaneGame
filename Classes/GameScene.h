@@ -11,6 +11,7 @@
 #define __planeGame__GameScene__
 
 #include "cocos2d.h"
+#include "PlaneLayer.h"
 
 USING_NS_CC;
 
@@ -20,10 +21,17 @@ public:
     ~GameScene();
     static cocos2d::Scene* createScene();
     virtual bool init();
+    virtual void onEnterTransitionDidFinish();
     CREATE_FUNC(GameScene);
+    
+    
+    void gameUpdate(float dt);
 
 private:
     void initData();
+    
+    PlaneLayer* mPlane;
+
     
 };
 

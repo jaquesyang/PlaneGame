@@ -11,18 +11,28 @@
 #define __planeGame__EnemySprite__
 
 #include "cocos2d.h"
+#include "EnemyInfo.h"
 
 USING_NS_CC;
 
-class EnemySprite: public cocos2d::Layer {
+class EnemySprite: public cocos2d::Node {
 public:
     EnemySprite();
     ~EnemySprite();
-    static cocos2d::Scene* createScene();
     virtual bool init();
     CREATE_FUNC(EnemySprite);
 
+public:
+    void setEnemyType(EnemyType enemyType);
+    Sprite* getSprite();
+    int getLife();
+    void loseLife();
+    Rect getBoundingBox();
+    Point getCurPoint();
 private:
+    Sprite* mSprite;
+    int mLife;
+    
     void initData();
     
 };
